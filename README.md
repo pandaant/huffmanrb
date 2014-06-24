@@ -7,7 +7,10 @@ This Project was created for the data compression course at FH-Aachen.
 Example usage:
 ========
 Create input to encode. 50% a's, 33.33% b's, 16.66% c's.
-    ruby -e "puts %w[a a a b b c].map{ |c| [c]*10000 }.flatten.shuffle.join" > testinput
+
+```shell
+$ ruby -e "puts %w[a a a b b c].map{ |c| [c]*10000 }.flatten.shuffle.join" > testinput
+```
 
 Compress input to file
 
