@@ -1,7 +1,7 @@
 require 'json'
 
 #
-# represents a node in the huffmann tree. 
+# represents a node in the huffman tree. 
 #
 # left/right    children
 # value         leafs store the bytevalue there
