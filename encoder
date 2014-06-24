@@ -1,12 +1,11 @@
 #!/usr/bin/env ruby
 
-require 'pp'
 require_relative 'node'
 
 # source is array of bytes / count occurences
 bytes = [*$<.read.bytes]
-src = [*bytes.inject(Hash.new(0)){|h,c|h[c]+=1;h}]        
-      .map{ |e| Node[nil,nil,*e] } # populate leafs
+src = [*bytes.inject(Hash.new(0)){|h,c|h[c]+=1;h}].
+    map{ |e| Node[nil,nil,*e] } # populate leafs
 
 # build tree
 until src.size.eql? 1

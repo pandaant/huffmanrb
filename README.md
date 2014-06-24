@@ -5,8 +5,8 @@ Implements a Huffman encoder/decoder in ruby.
 
 This Project was created for the data compression course at FH-Aachen.
 
-Example usage:
-========
+## Example usage:
+
 Create input to encode. 50% a's, 33.33% b's, 16.66% c's.
 
 ```shell
