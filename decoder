@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require_relative 'node'
+
+src = [*$<.read.lines]
+tree, blength, data = src[0].chop, src[1].chop.to_i, src[2..-1].join
+table = Node.from_s(JSON.parse( tree, max_nesting:10000 )).table.invert
+data = data.unpack('B*')[0][0..blength - 1]
+
+# decompression
+while !data.empty?
+    e,d = *table.select{|e|data.end_with? e}.max
+    data=data[0..(-e.length-1)]
+    (output||="") << d.chr
+end;$><<output.reverse
