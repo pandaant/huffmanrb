@@ -4,6 +4,14 @@ Implements a Huffman encoder/decoder in ruby.
 
 This Project was created for the data compression course at FH-Aachen.
 
+## Installation
+
+```shell
+$ git clone https://github.com/pandaant/huffmanrb.git
+$ cd huffmanrb
+$ rake all
+```
+
 ## Example usage:
 
 Create input to encode. 50% a's, 33.33% b's, 16.66% c's.
@@ -15,13 +23,13 @@ $ ruby -e "puts %w[a a a b b c].map{ |c| [c]*10000 }.flatten.shuffle.join" > tes
 Compress input to file
 
 ```shell
-$ ./encoder < testinput > enc.testinput
+$ huffrb-encode < testinput > enc.testinput
 ```
 
 Decompress encoded file to file
 
 ```shell
-$ ./decoder < enc.testinput > dec.testinput
+$ huffrb-decode < enc.testinput > dec.testinput
 ```
 
 Compare file sizes
