@@ -1,5 +1,4 @@
-huffmanrb
-=========
+# Huffmanrb
 
 Implements a Huffman encoder/decoder in ruby.
 

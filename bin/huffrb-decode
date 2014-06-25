@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
-require_relative 'node'
+
+require 'huffmanrb/node'
 
 src = [*$<.read.lines]
 tree, blength, data = src[0].chop, src[1].chop.to_i, src[2..-1].join

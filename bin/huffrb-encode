@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative 'node'
+require 'huffmanrb/node'
 
 # source is array of bytes / count occurences
 bytes = [*$<.read.bytes]

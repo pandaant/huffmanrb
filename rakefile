@@ -1,0 +1,28 @@
+require 'rake'
+require 'rake/testtask'
+require 'fileutils'
+
+def gemspec
+    @gemspec ||= eval(File.read('huffmanrb.gemspec'), binding, 'huffmanrb.gemspec')
+end
+
+task :gem do 
+    sh "gem build huffmanrb.gemspec"
+    FileUtils.mkdir_p 'pkg'
+    FileUtils.mv "#{gemspec.name}-#{gemspec.version}.gem", 'pkg'
+end
+
+task :install do
+    sh %{gem install pkg/#{gemspec.name}-#{gemspec.version}.gem}
+end
+
+task :clean do
+    sh "rm -r -f pkg"
+end
+
+Rake::TestTask.new do |t|
+    t.libs << 'test'
+end
+
+task :default => :test
+task :all => [:gem, :install]
