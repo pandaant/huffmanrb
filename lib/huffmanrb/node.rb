@@ -26,15 +26,10 @@ class Node < Struct.new :left, :right, :value, :freq
         end;p
     end
 
-    def to_a # table in condensed format
-        leaf?? value : [left.to_a,right.to_a]
-    end
+    def <=> n; freq <=> n.freq; end
 
-    def leaf?
-        [left, right].any? &:nil?
-    end
+    def leaf?; [left, right].any? &:nil?; end
 
-    def <=> n 
-        freq <=> n.freq
-    end
+    # table in condensed format
+    def to_a; leaf?? value : [left.to_a,right.to_a]; end
 end

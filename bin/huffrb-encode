@@ -1,21 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'huffmanrb/node'
+require 'huffmanrb'
+include Huffmanrb
 
-# source is array of bytes / count occurences
-bytes = [*$<.read.bytes]
-src = [*bytes.inject(Hash.new(0)){|h,c|h[c]+=1;h}].
-    map{ |e| Node[nil,nil,*e] } # populate leafs
-
-# build tree
-until src.size.eql? 1
-    src.sort!
-    pair = src.shift 2
-    src << Node[*pair,nil,pair.map{|e|e.freq}.reduce(:+)]
-end
-
-root = src.first
-tbl = root.table
-bytestr = bytes.map{|e|tbl[e]}.join
-
-$> << "%s\n%d\n"%[JSON.generate(root.to_a,max_nesting:1000),bytestr.length.to_s] << [bytestr].pack('B*')
+$> << Huffmanrb::encode($<.read)
