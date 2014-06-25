@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
 require 'huffmanrb'
-include Huffmanrb
 
-$> << decode($<.read)
+$> << Huffmanrb.decode($<.read)
