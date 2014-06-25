@@ -1,13 +1,8 @@
-require 'json'
-
-#
 # represents a node in the huffman tree. 
 #
 # left/right    children
 # value         leafs store the bytevalue there
 # freq          the frequency of that node
-# 
-
 class Node < Struct.new :left, :right, :value, :freq
     # generates the tree from an nested array
     def self.from_s s
