@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'huffmanrb'
+require 'huffmanrb/optparser'
+
+options = Huffmanrb::OptParser.parse ARGV
+
+$> << Huffmanrb.send(options.mode, $<.read)

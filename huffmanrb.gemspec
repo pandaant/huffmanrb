@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
     s.authors     = ["Mark"]
     s.email       = 'apandaant@gmail.com'
     s.files       = Dir.glob("{lib,bin}/**/*")
-    s.executables = %w[huffrb-encode huffrb-decode]
+    s.executables = %w[huffrb]
     s.license     = 'MIT'
 
     s.add_development_dependency "rake"
