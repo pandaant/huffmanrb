@@ -23,13 +23,13 @@ $ ruby -e "puts %w[a a a b b c].map{ |c| [c]*10000 }.flatten.shuffle.join" > tes
 Compress input to file
 
 ```shell
-$ huffrb-encode < testinput > enc.testinput
+$ huffrb < testinput > enc.testinput
 ```
 
 Decompress encoded file to file
 
 ```shell
-$ huffrb-decode < enc.testinput > dec.testinput
+$ huffrb -d < enc.testinput > dec.testinput
 ```
 
 Compare file sizes
