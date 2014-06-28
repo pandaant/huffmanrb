@@ -12,8 +12,8 @@ module Huffmanrb
                 opts.separator ''
                 opts.separator 'Specific options:'
 
-                opts.on('-d', '--[no-]decode', 
-                        'Decode input.') do |v|
+                opts.on('-d', '--decode', 
+                        'Decode input data.') do |v|
                     options.mode = :decode
                 end
 
