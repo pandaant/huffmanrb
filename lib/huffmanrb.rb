@@ -1,10 +1,9 @@
-require 'pp'
 require 'huffmanrb/node'
 
 module Huffmanrb
     def self.encode str
         bytes = str.bytes
-        src = [*bytes.inject(Hash.new(0)){|h,c|h[c]+=1;h}].
+        src = bytes.inject(Hash.new(0)){|h,c|h[c]+=1;h}.
             map{ |e| Node[nil,nil,*e] } # populate leafs
 
         # build tree
@@ -22,6 +21,7 @@ module Huffmanrb
     end
 
     def self.decode str
+        output_buffer = String.new
         src = str.lines.map &:chomp
         tree, blength, data = src[0], src[1].to_i, src[2..-1].join
         table = Node.from_s(Marshal.load( tree )).table.invert
@@ -31,9 +31,9 @@ module Huffmanrb
         while !data.empty?
             e,d = *table.select{|e|data.end_with? e}.max
             data=data[0..(-e.length-1)]
-            (output||="") << d.chr
+            output_buffer << d.chr
         end
 
-        output.reverse
+        output_buffer.reverse
     end
 end
