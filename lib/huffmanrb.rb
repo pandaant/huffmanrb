@@ -10,7 +10,7 @@ module Huffmanrb
         until src.size.eql? 1
             src.sort!
             pair = src.shift 2
-            src << Node[*pair,nil,pair.map{|e|e.freq}.reduce(:+)]
+            src << Node[*pair,nil,pair.map(&:freq).reduce(:+)]
         end
 
         root    = src.first
