@@ -2,8 +2,6 @@
 
 Implements a Huffman encoder/decoder in ruby.
 
-This Project was created for the data compression course at FH-Aachen.
-
 ## Installation
 
 ```shell
